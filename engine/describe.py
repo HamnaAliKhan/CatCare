@@ -1,4 +1,4 @@
-"""Free-text description: "my 4 month old kitten is vomiting & has dast, not
+"""Free-text description: "my 4 month old kitten is vomiting & has diarrhea, not
 vaccinated, not eating since yesterday" -> answers the engine won't need to ask.
 
 How it reads a description:

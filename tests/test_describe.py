@@ -17,7 +17,7 @@ def kb():
 
 
 @pytest.mark.parametrize("text, expected", [
-    ("my 4 month old kitten is vomiting & has dast, not vaccinated, not eating since yesterday",
+    ("my 4 month old kitten is vomiting & has diarrhea, not vaccinated, not eating since yesterday",
      {"age": "kitten", "vomiting": "yes", "diarrhoea": "yes", "vaccinated": "no",
       "appetite": "none", "hours_since_ate": "over_24"}),
     ("sneezing and runny eyes but still eating, no runny nose",

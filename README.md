@@ -14,7 +14,7 @@ CatCare is a course project (Intro to Artificial Intelligence), **not a vet**. A
 
 - **Knowledge base** (`kb/*.json`): 24 questions, 7 intermediate facts, 58 rules, each citing its source (Cornell Feline Health Center, WSU, VCA, ASPCApro). No database: the rules are the expert system.
 - **Inference engine** (`engine/`): our own backward chaining with certainty factors and a forward pass after every answer. Triage first, then the condition, then the urgency ("when unsure, more urgent").
-- **Flexible input**: "102", "a hundred and two", "39.8 C", "6 months", "half a year", "since yesterday", "haan", "nahi", "ulti", typos, and a free-text description ("my kitten is vomiting & has dast, not vaccinated").
+- **Flexible input**: "102", "a hundred and two", "39.8 C", "6 months", "half a year", "since yesterday", "haan", "nahi", "ulti", typos, and a free-text description ("my kitten is vomiting & has diarrhea, not vaccinated").
 - **Certainty words**: not sure → maybe → quite possible → definitely.
 - **Explanations**: Why? (during a question), How? and Why not? (at the result).
 - **Decision tree**: `docs/decision_tree.md`, generated from the rules.

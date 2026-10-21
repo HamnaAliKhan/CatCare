@@ -8,7 +8,7 @@
 
   "description": {
     "prompt": "Describe your cat's problem in your own words (optional)",
-    "example": "e.g. my 4 month old kitten is vomiting & has dast, not vaccinated, not eating since yesterday",
+    "example": "e.g. my 4 month old kitten is vomiting & has diarrhea, not vaccinated, not eating since yesterday",
     "separators": [",", ";", "&", "+", ".", "and", "but", "also", "plus", "then", "aur", "lekin", "or bhi"],
     "negations_before": ["no", "not", "never", "without", "isn't", "isnt", "is not", "doesn't", "doesnt", "does not",
                          "didn't", "didnt", "hasn't", "hasnt", "has not", "no more"],
