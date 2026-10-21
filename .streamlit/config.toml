@@ -1,3 +1,7 @@
+[server]
+# Compress the messages sent on every answer: helps on slow (3G) connections.
+enableWebsocketCompression = true
+
 [browser]
 gatherUsageStats = false
 
