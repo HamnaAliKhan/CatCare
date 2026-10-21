@@ -46,7 +46,7 @@ def test_description_then_emergency():
     for _ in range(3):
         quick(at, "No")
     no_errors(at)
-    assert at.error[0].value == "### Emergency: go to a vet now"
+    assert at.error[0].value == "**Emergency: go to a vet now**"
     at.radio[0].set_value("Nearest vet clinic, now").run()
     assert "You chose" in at.success[0].value
 
@@ -85,7 +85,7 @@ def test_cat_flu_home_care_and_restart():
     while at.button and any(b.key and b.key.startswith("btn_") for b in at.button):
         quick(at, "Not sure" if "temperature" in (question(at) or "") else "No")
     no_errors(at)
-    assert at.success[0].value == "### Care at home and watch closely"
+    assert at.success[0].value == "**Care at home and watch closely**"
     at.button(key="restart").click().run()
     assert at.text_area(key="description_box") is not None
 

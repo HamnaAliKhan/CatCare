@@ -86,7 +86,7 @@ def answer_buttons(param):
 # ----- stage 1: describe -----
 def describe_stage():
     words = kb.settings["description"]
-    st.subheader(words["prompt"])
+    st.subheader(words["prompt"], anchor=False)
     text = st.text_area("Description", value=state.text, placeholder=words["example"],
                         max_chars=1000, label_visibility="collapsed", key="description_box")
     left, right = st.columns(2)
@@ -103,7 +103,7 @@ def describe_stage():
 # ----- stage 2: confirm what was understood -----
 def confirm_stage():
     d = state.description
-    st.subheader("Here's what I understood")
+    st.subheader("Here's what I understood", anchor=False)
     keep = {}
     for param, answer in d.facts.items():
         keep[param] = st.checkbox(f"{kb.params[param]['question']} **{shown(param, answer)}**",
@@ -141,7 +141,7 @@ def question_stage():
 def ask(q):
     param, info = q.param, kb.params[q.param]
     st.caption(f"Question {len(state.history) + 1}")
-    st.subheader(info["question"])
+    st.subheader(info["question"], anchor=False)
     with st.expander("How do I check?"):
         st.write(info["help"])
     with st.expander("Why are you asking?"):
@@ -202,12 +202,12 @@ def show_result(result):
 def show_decision(group, outcome):
     name = kb.name(outcome.decision)
     rank = group["goal_ids"].index(outcome.decision)
-    box = [st.error, st.warning, st.info][rank] if rank < 3 else st.success
-    box(f"### {name}")
+    box, icon = [(st.error, "🚨"), (st.warning, "⚠️"), (st.info, "🩺")][rank] if rank < 3 else (st.success, "🏠")
+    box(f"**{name}**", icon=icon)
 
 
 def show_diagnosis(group, outcome):
-    st.subheader(group["title"])
+    st.subheader(group["title"], anchor=False)
     if outcome.kind == "none":
         st.info(group["none_text"])
         return
@@ -226,7 +226,7 @@ def show_options(result):
         options = kb.options.get(decision)
         if not options:
             continue
-        st.subheader("Your options: you decide")
+        st.subheader("Your options: you decide", anchor=False)
         for option in options["options"]:
             with st.container(border=True):
                 st.markdown(f"**{option['name']}**")
@@ -255,6 +255,6 @@ def show_explanations(result):
 
 
 # ----- page -----
-st.title(f"🐱 {kb.settings['name']}")
+st.title(f"🐱 {kb.settings['name']}", anchor=False)
 st.caption(kb.settings["disclaimer"])
 {"describe": describe_stage, "confirm": confirm_stage, "questions": question_stage}[state.stage]()
