@@ -1,0 +1,22 @@
+{
+ "name": "No signs of the three conditions and no danger: see a vet in 1-2 days",
+ "answers": {
+  "breathing_trouble": "no",
+  "collapsed": "no",
+  "straining": "no",
+  "litter_often": "no",
+  "blood_in_stool": "no",
+  "sneezing": "no",
+  "eye_discharge": "no",
+  "nose_discharge": "no",
+  "vomiting": "no",
+  "diarrhoea": "no",
+  "appetite": "normal"
+ },
+ "expect": {
+  "condition": {
+   "kind": "none"
+  },
+  "urgency": "vet_soon"
+ }
+}

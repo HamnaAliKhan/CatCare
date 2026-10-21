@@ -1,0 +1,29 @@
+{
+ "name": "Unvaccinated kitten with vomiting, diarrhoea, weakness and fever",
+ "answers": {
+  "breathing_trouble": "no",
+  "collapsed": "no",
+  "straining": "no",
+  "litter_often": "no",
+  "blood_in_stool": "no",
+  "sneezing": "no",
+  "eye_discharge": "no",
+  "nose_discharge": "no",
+  "vomiting": "yes",
+  "diarrhoea": "yes",
+  "age": "4 months",
+  "vaccinated": "no",
+  "near_other_cats": "new cat",
+  "tired": "weak",
+  "appetite": "none",
+  "temperature": "103.5 F"
+ },
+ "expect": {
+  "condition": {
+   "kind": "diagnosis",
+   "goal": "cat_parvo",
+   "min_cf": 0.85
+  },
+  "urgency": "emergency"
+ }
+}

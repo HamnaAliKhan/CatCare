@@ -1,0 +1,27 @@
+{
+ "name": "Owner only 'probably' sees little urine: less sure of the cause, still an emergency",
+ "answers": {
+  "breathing_trouble": "no",
+  "collapsed": "no",
+  "straining": "yes",
+  "litter_often": "yes",
+  "little_urine": "probably",
+  "blood_in_stool": "no",
+  "sex": "male",
+  "cries_urinating": "no",
+  "blood_in_urine": "no",
+  "licking_genitals": "no",
+  "sneezing": "no",
+  "eye_discharge": "no",
+  "nose_discharge": "no",
+  "vomiting": "no",
+  "diarrhoea": "no"
+ },
+ "expect": {
+  "condition": {
+   "goal": "blocked_bladder",
+   "min_cf": 0.6
+  },
+  "urgency": "emergency"
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "name": "Mild Cat Flu described in Roman Urdu",
+ "answers": {
+  "breathing_trouble": "nahi",
+  "collapsed": "nahi",
+  "straining": "nahi",
+  "litter_often": "nahi",
+  "blood_in_stool": "nahi",
+  "sneezing": "haan",
+  "eye_discharge": "aankh se pani",
+  "nose_discharge": "no",
+  "red_eyes": "ji",
+  "appetite": "kha rahi hai",
+  "tired": "nahi",
+  "temperature": "pata nahi"
+ },
+ "expect": {
+  "condition": {
+   "kind": "diagnosis",
+   "goal": "cat_flu",
+   "min_cf": 0.85
+  },
+  "urgency": "home_care"
+ }
+}

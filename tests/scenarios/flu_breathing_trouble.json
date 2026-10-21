@@ -1,0 +1,21 @@
+{
+ "name": "Cat Flu with trouble breathing: a danger sign overrides everything",
+ "answers": {
+  "breathing_trouble": "breathing fast",
+  "collapsed": "no",
+  "straining": "no",
+  "litter_often": "no",
+  "blood_in_stool": "no",
+  "sneezing": "yes",
+  "eye_discharge": "yes",
+  "nose_discharge": "no",
+  "red_eyes": "yes"
+ },
+ "expect": {
+  "condition": {
+   "goal": "cat_flu",
+   "min_cf": 0.85
+  },
+  "urgency": "emergency"
+ }
+}

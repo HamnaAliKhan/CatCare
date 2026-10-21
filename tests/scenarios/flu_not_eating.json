@@ -1,0 +1,28 @@
+{
+ "name": "Cat Flu that has stopped the cat eating for over a day",
+ "answers": {
+  "breathing_trouble": "no",
+  "collapsed": "no",
+  "straining": "no",
+  "litter_often": "no",
+  "blood_in_stool": "no",
+  "sneezing": "sneezing a lot",
+  "eye_discharge": "yes",
+  "nose_discharge": "runny nose",
+  "red_eyes": "no",
+  "mouth_sores": "no",
+  "near_other_cats": "no",
+  "temperature": "not sure",
+  "vomiting": "no",
+  "diarrhoea": "no",
+  "appetite": "not eating",
+  "hours_since_ate": "since yesterday"
+ },
+ "expect": {
+  "condition": {
+   "goal": "cat_flu",
+   "min_cf": 0.6
+  },
+  "urgency": "vet_today"
+ }
+}

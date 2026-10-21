@@ -1,0 +1,25 @@
+{
+ "name": "Owner answers 'not sure' to everything: no crash, cautious advice",
+ "answers": {
+  "breathing_trouble": "not sure",
+  "collapsed": "not sure",
+  "straining": "not sure",
+  "litter_often": "not sure",
+  "blood_in_stool": "not sure",
+  "sneezing": "not sure",
+  "eye_discharge": "not sure",
+  "nose_discharge": "not sure",
+  "vomiting": "not sure",
+  "diarrhoea": "not sure",
+  "age": "not sure",
+  "vaccinated": "not sure",
+  "near_other_cats": "not sure",
+  "appetite": "not sure"
+ },
+ "expect": {
+  "condition": {
+   "kind": "none"
+  },
+  "urgency": "vet_soon"
+ }
+}

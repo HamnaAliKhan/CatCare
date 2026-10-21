@@ -1,0 +1,21 @@
+{
+ "name": "Collapsed cat with none of the three conditions: still an emergency",
+ "answers": {
+  "breathing_trouble": "no",
+  "collapsed": "yes",
+  "straining": "no",
+  "litter_often": "no",
+  "blood_in_stool": "no",
+  "sneezing": "no",
+  "eye_discharge": "no",
+  "nose_discharge": "no",
+  "vomiting": "no",
+  "diarrhoea": "no"
+ },
+ "expect": {
+  "condition": {
+   "kind": "none"
+  },
+  "urgency": "emergency"
+ }
+}

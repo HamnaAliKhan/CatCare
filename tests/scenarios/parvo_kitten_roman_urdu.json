@@ -1,0 +1,28 @@
+{
+ "name": "Parvo kitten described in Roman Urdu and words",
+ "answers": {
+  "breathing_trouble": "no",
+  "collapsed": "no",
+  "straining": "no",
+  "litter_often": "no",
+  "blood_in_stool": "no",
+  "sneezing": "no",
+  "eye_discharge": "no",
+  "nose_discharge": "no",
+  "vomiting": "ulti",
+  "diarrhoea": "dast",
+  "age": "bacha",
+  "vaccinated": "teeka nahi",
+  "near_other_cats": "bahar jati hai",
+  "tired": "sust",
+  "appetite": "bilkul nahi",
+  "temperature": "thirty nine point five"
+ },
+ "expect": {
+  "condition": {
+   "goal": "cat_parvo",
+   "min_cf": 0.85
+  },
+  "urgency": "emergency"
+ }
+}

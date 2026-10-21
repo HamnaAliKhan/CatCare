@@ -1,0 +1,65 @@
+{
+  "name": "CatCare",
+  "disclaimer": "CatCare is not a vet and cannot examine your cat. Use this as a guide and confirm with a vet.",
+
+  "start_with": ["danger_sign"],
+  "start_text": "Before anything else, I check for danger signs: whether {label}.",
+
+  "certainty_words": [
+    {"min": 0.85, "word": "definitely"},
+    {"min": 0.6, "word": "quite possible"},
+    {"min": 0.4, "word": "maybe"},
+    {"min": 0.2, "word": "not sure"}
+  ],
+  "below_words": "unlikely",
+
+  "answers": {
+    "yes": {"value": "yes", "certainty": 1.0,
+            "words": ["yes", "y", "yeah", "yea", "yep", "yup", "sure", "of course", "definitely", "correct", "true",
+                      "haan", "han", "haa", "ha", "ji", "jee", "ji haan", "bilkul"]},
+    "probably": {"value": "yes", "certainty": 0.6,
+                 "words": ["probably", "probably yes", "likely", "i think so", "think so", "mostly", "a bit", "a little", "shayad haan"]},
+    "maybe": {"value": "yes", "certainty": 0.4,
+              "words": ["maybe", "may be", "perhaps", "possibly", "shayad"]},
+    "not_sure": {"value": "yes", "certainty": 0.0,
+                 "words": ["not sure", "unsure", "don't know", "dont know", "do not know", "idk", "dunno", "no idea",
+                           "can't tell", "cant tell", "can't check", "cant check", "skip", "?", "pata nahi", "pta nahi", "maloom nahi"]},
+    "probably_not": {"value": "no", "certainty": 0.6,
+                     "words": ["probably not", "i don't think so", "i dont think so", "don't think so", "dont think so",
+                               "unlikely", "not really", "shayad nahi"]},
+    "no": {"value": "no", "certainty": 1.0,
+           "words": ["no", "n", "nope", "nah", "never", "not at all", "none", "false",
+                     "nahi", "nahin", "nai", "na", "bilkul nahi"]}
+  },
+
+  "units": {
+    "months": {
+      "default": "year",
+      "names": {
+        "month": ["month", "months", "mo", "mos", "mon", "mnth", "mnths", "mahine", "mahina"],
+        "week": ["week", "weeks", "wk", "wks", "hafta", "haftay"],
+        "year": ["year", "years", "yr", "yrs", "y", "saal"],
+        "day": ["day", "days", "din"]
+      },
+      "factor": {"month": 1, "week": 0.23, "year": 12, "day": 0.033}
+    },
+    "fahrenheit": {
+      "default": "f",
+      "guess": [{"below": 50, "unit": "c"}],
+      "names": {
+        "f": ["f", "°f", "fahrenheit", "farenheit", "deg f", "degrees f", "degree f"],
+        "c": ["c", "°c", "celsius", "celcius", "centigrade", "deg c", "degrees c", "degree c"]
+      },
+      "convert": {"f": [1, 0], "c": [1.8, 32]}
+    },
+    "hours": {
+      "default": "hour",
+      "names": {
+        "hour": ["hour", "hours", "hr", "hrs", "h", "ghanta", "ghantay", "ghante"],
+        "day": ["day", "days", "d", "din"],
+        "week": ["week", "weeks", "wk", "wks", "hafta"]
+      },
+      "factor": {"hour": 1, "day": 24, "week": 168}
+    }
+  }
+}

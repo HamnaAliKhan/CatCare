@@ -1,0 +1,661 @@
+{
+  "breathing_trouble": {
+    "type": "askable",
+    "question": "Is your cat struggling to breathe, or breathing very fast while resting?",
+    "help": "Count the breaths for a minute while your cat rests (each rise and fall of the chest is one). More than 35 a minute is too fast.",
+    "why": "Trouble breathing needs a vet straight away, whatever the cause.",
+    "synonyms": {
+      "yes": [
+        "breathing fast",
+        "fast breathing",
+        "panting",
+        "can't breathe",
+        "cant breathe",
+        "struggling to breathe",
+        "breathing heavily",
+        "saans",
+        "saans phool rahi"
+      ],
+      "no": [
+        "breathing normally",
+        "breathing fine",
+        "normal breathing"
+      ]
+    }
+  },
+  "collapsed": {
+    "type": "askable",
+    "question": "Has your cat collapsed, or is it unable to stand up?",
+    "help": "Lying flat and not getting up, falling over when it tries to walk, or not responding to you.",
+    "why": "A cat that has collapsed needs a vet straight away, whatever the cause.",
+    "synonyms": {
+      "yes": [
+        "collapsed",
+        "can't stand",
+        "cant stand",
+        "fell over",
+        "not moving",
+        "unconscious",
+        "gir gayi",
+        "gir gaya"
+      ],
+      "no": [
+        "standing",
+        "walking",
+        "walking fine",
+        "moving around"
+      ]
+    }
+  },
+  "blood_in_stool": {
+    "type": "askable",
+    "question": "Is there blood in your cat's stool or vomit?",
+    "help": "Red streaks or spots, or very dark, tarry stool.",
+    "why": "Blood in the stool or vomit is a danger sign. Cat Parvo can cause bloody diarrhoea.",
+    "synonyms": {
+      "yes": [
+        "blood",
+        "bloody",
+        "red stool",
+        "bloody diarrhoea",
+        "bloody diarrhea",
+        "khoon"
+      ]
+    }
+  },
+  "straining": {
+    "type": "askable",
+    "question": "Is your cat straining in the litter box?",
+    "help": "Squatting for a long time and pushing, getting up and trying again. Owners often mistake this for constipation.",
+    "why": "Straining to urinate is the main sign of a bladder problem, and can mean the bladder is blocked.",
+    "synonyms": {
+      "yes": [
+        "straining",
+        "pushing",
+        "trying hard",
+        "keeps trying",
+        "sitting in the litter box",
+        "zor laga rahi",
+        "zor laga raha"
+      ]
+    }
+  },
+  "litter_often": {
+    "type": "askable",
+    "question": "Is your cat going to the litter box much more often than usual?",
+    "help": "Many short visits, or trying to go outside the litter box.",
+    "why": "Going much more often is a common sign of a bladder problem.",
+    "synonyms": {
+      "yes": [
+        "again and again",
+        "many times",
+        "very often",
+        "all the time",
+        "keeps going",
+        "bar bar"
+      ]
+    }
+  },
+  "little_urine": {
+    "type": "askable",
+    "question": "When it tries, does your cat pass only a little urine, or none at all?",
+    "help": "Check the litter: only small wet spots, a few drops, or nothing at all count as yes.",
+    "why": "Straining with little or no urine means the urine cannot get out. Cornell calls this an absolute emergency.",
+    "synonyms": {
+      "yes": [
+        "only drops",
+        "a few drops",
+        "drops",
+        "very little",
+        "a little",
+        "nothing",
+        "nothing comes out",
+        "none",
+        "none at all",
+        "no urine",
+        "no pee",
+        "can't pee",
+        "cant pee",
+        "not peeing",
+        "peshab nahi"
+      ],
+      "no": [
+        "normal amount",
+        "normal",
+        "a lot",
+        "peeing normally",
+        "passing urine",
+        "peeing"
+      ]
+    }
+  },
+  "cries_urinating": {
+    "type": "askable",
+    "question": "Does your cat cry or yowl when it tries to urinate?",
+    "help": "Crying, growling or yowling while in the litter box.",
+    "why": "Crying while urinating shows pain, a sign of a bladder problem.",
+    "synonyms": {
+      "yes": [
+        "crying",
+        "cries",
+        "yowls",
+        "yowling",
+        "meows loudly",
+        "growls"
+      ]
+    }
+  },
+  "blood_in_urine": {
+    "type": "askable",
+    "question": "Is there blood in your cat's urine?",
+    "help": "Pink, red or brown urine, or red spots in the litter.",
+    "why": "Blood in the urine is a sign of a bladder problem.",
+    "synonyms": {
+      "yes": [
+        "red urine",
+        "pink urine",
+        "red pee",
+        "pink pee",
+        "bloody urine",
+        "blood"
+      ]
+    }
+  },
+  "licking_genitals": {
+    "type": "askable",
+    "question": "Is your cat licking its genital area much more than usual?",
+    "help": "Licking under the tail again and again, often after visiting the litter box.",
+    "why": "Frequent licking of the genital area is a sign of a bladder problem.",
+    "synonyms": {
+      "yes": [
+        "licking",
+        "licks a lot",
+        "keeps licking"
+      ]
+    }
+  },
+  "sex": {
+    "type": "askable",
+    "question": "Is your cat male or female?",
+    "help": "Answer male even if he has been neutered.",
+    "why": "Male cats are at greater risk of a blocked bladder because their urethra is longer and narrower.",
+    "values": [
+      "male",
+      "female"
+    ],
+    "labels": {
+      "male": "Male",
+      "female": "Female"
+    },
+    "synonyms": {
+      "male": [
+        "male",
+        "m",
+        "boy",
+        "tom",
+        "tomcat",
+        "he",
+        "him",
+        "billa",
+        "nar",
+        "larka",
+        "neutered male"
+      ],
+      "female": [
+        "female",
+        "f",
+        "girl",
+        "queen",
+        "she",
+        "her",
+        "billi",
+        "mada",
+        "larki",
+        "spayed female"
+      ]
+    }
+  },
+  "sneezing": {
+    "type": "askable",
+    "question": "Is your cat sneezing?",
+    "help": "Sneezing more than a few times a day counts.",
+    "why": "Sneezing is one of the main signs of Cat Flu.",
+    "synonyms": {
+      "yes": [
+        "sneezing",
+        "sneezes",
+        "sneezing a lot",
+        "chheenk",
+        "chheenkein",
+        "chheenken"
+      ]
+    }
+  },
+  "eye_discharge": {
+    "type": "askable",
+    "question": "Is there discharge from your cat's eyes?",
+    "help": "Watery, sticky, yellow or green discharge, or crust in the corners of the eyes.",
+    "why": "Eye discharge is one of the main signs of Cat Flu.",
+    "synonyms": {
+      "yes": [
+        "runny eyes",
+        "watery eyes",
+        "sticky eyes",
+        "eye gunk",
+        "crusty eyes",
+        "pus",
+        "aankh se pani"
+      ]
+    }
+  },
+  "nose_discharge": {
+    "type": "askable",
+    "question": "Is there discharge from your cat's nose?",
+    "help": "A runny or crusty nose, clear or coloured.",
+    "why": "Nose discharge is one of the main signs of Cat Flu.",
+    "synonyms": {
+      "yes": [
+        "runny nose",
+        "snotty",
+        "snot",
+        "crusty nose",
+        "naak beh rahi",
+        "naak se pani"
+      ]
+    }
+  },
+  "red_eyes": {
+    "type": "askable",
+    "question": "Are your cat's eyes red or swollen around the edges?",
+    "help": "Look at the pink skin around the eyes: red, puffy or half-closed eyes count.",
+    "why": "Red, swollen eyes (conjunctivitis) often come with Cat Flu.",
+    "synonyms": {
+      "yes": [
+        "red eyes",
+        "swollen eyes",
+        "puffy eyes",
+        "half closed",
+        "red",
+        "swollen"
+      ]
+    }
+  },
+  "mouth_sores": {
+    "type": "askable",
+    "question": "Are there sores in your cat's mouth, or is it drooling?",
+    "help": "Red spots or ulcers on the tongue or gums, or wet fur on the chin.",
+    "why": "Calicivirus, one of the Cat Flu viruses, can sometimes cause mouth ulcers.",
+    "synonyms": {
+      "yes": [
+        "drooling",
+        "ulcers",
+        "mouth ulcers",
+        "sores",
+        "red gums"
+      ]
+    }
+  },
+  "near_other_cats": {
+    "type": "askable",
+    "question": "Has your cat been near other cats recently?",
+    "help": "For example a new cat at home, going outdoors, a cattery, a shelter or a pet shop.",
+    "why": "Cat Flu and Cat Parvo spread between cats, especially where many cats are kept together.",
+    "synonyms": {
+      "yes": [
+        "outdoor cat",
+        "goes outside",
+        "goes out",
+        "new cat",
+        "other cats",
+        "shelter",
+        "cattery",
+        "pet shop",
+        "bahar jati hai"
+      ],
+      "no": [
+        "indoor only",
+        "indoor cat",
+        "only cat",
+        "no other cats",
+        "never goes out"
+      ]
+    }
+  },
+  "vomiting": {
+    "type": "askable",
+    "question": "Is your cat vomiting?",
+    "help": "Bringing up food, liquid or foam. A single hairball does not count.",
+    "why": "Vomiting is one of the main signs of Cat Parvo.",
+    "synonyms": {
+      "yes": [
+        "vomiting",
+        "throwing up",
+        "throws up",
+        "being sick",
+        "ulti",
+        "ultiyan",
+        "ulti kar rahi"
+      ]
+    }
+  },
+  "diarrhoea": {
+    "type": "askable",
+    "question": "Does your cat have diarrhoea?",
+    "help": "Loose or watery stool, in or outside the litter box.",
+    "why": "Diarrhoea is one of the main signs of Cat Parvo.",
+    "synonyms": {
+      "yes": [
+        "diarrhea",
+        "diarrhoea",
+        "loose stool",
+        "loose motions",
+        "watery stool",
+        "runny poo",
+        "dast",
+        "patla"
+      ],
+      "no": [
+        "normal stool",
+        "normal poo"
+      ]
+    }
+  },
+  "age": {
+    "type": "askable",
+    "question": "How old is your cat?",
+    "help": "Type the age, for example \"6 months\", \"2 years\" or \"kitten\". Cats under 1 year old count as kittens.",
+    "why": "Kittens are the group most at risk of Cat Parvo, and get very sick very quickly.",
+    "values": [
+      "kitten",
+      "adult"
+    ],
+    "labels": {
+      "kitten": "Kitten (under 1 year)",
+      "adult": "Adult (1 year or older)"
+    },
+    "synonyms": {
+      "kitten": [
+        "kitten",
+        "kitty",
+        "baby",
+        "young",
+        "bacha",
+        "baccha",
+        "chota"
+      ],
+      "adult": [
+        "adult",
+        "grown up",
+        "grown",
+        "old",
+        "senior",
+        "bara",
+        "bada"
+      ]
+    },
+    "number": {
+      "unit": "months",
+      "range": [
+        0,
+        360
+      ],
+      "bands": [
+        {
+          "max": 12,
+          "value": "kitten"
+        },
+        {
+          "value": "adult"
+        }
+      ]
+    }
+  },
+  "vaccinated": {
+    "type": "askable",
+    "question": "Has your cat had its vaccinations?",
+    "help": "The core cat vaccine is called FVRCP (sometimes \"tricat\"). Check the vaccination card, or ask whoever gave you the cat.",
+    "why": "Vaccination protects against Cat Parvo. Unvaccinated cats and kittens are the main group that catches it.",
+    "synonyms": {
+      "yes": [
+        "vaccinated",
+        "fully vaccinated",
+        "all shots",
+        "fvrcp",
+        "fvrcp done",
+        "tricat done",
+        "teeka laga hai"
+      ],
+      "no": [
+        "not vaccinated",
+        "unvaccinated",
+        "never vaccinated",
+        "no shots",
+        "no vaccine",
+        "teeka nahi"
+      ]
+    }
+  },
+  "tired": {
+    "type": "askable",
+    "question": "Is your cat unusually tired, weak or hiding?",
+    "help": "Sleeping much more than usual, not wanting to play, hiding under furniture, or weak on its legs.",
+    "why": "Tiredness and weakness show the cat is generally unwell.",
+    "synonyms": {
+      "yes": [
+        "lethargic",
+        "tired",
+        "sleepy",
+        "weak",
+        "hiding",
+        "dull",
+        "not playing",
+        "sust",
+        "kamzor"
+      ],
+      "no": [
+        "active",
+        "playful",
+        "playing",
+        "normal",
+        "energetic"
+      ]
+    }
+  },
+  "appetite": {
+    "type": "askable",
+    "question": "Is your cat eating?",
+    "help": "Compare with how much it usually eats.",
+    "why": "Not eating is a sign of illness, and a cat that eats nothing for about a day needs a vet.",
+    "values": [
+      "normal",
+      "less",
+      "none"
+    ],
+    "labels": {
+      "normal": "Eating normally",
+      "less": "Eating less",
+      "none": "Not eating at all"
+    },
+    "synonyms": {
+      "normal": [
+        "normal",
+        "normally",
+        "yes",
+        "y",
+        "eating",
+        "eating normally",
+        "eating well",
+        "fine",
+        "as usual",
+        "haan",
+        "ji",
+        "kha rahi hai",
+        "kha raha hai"
+      ],
+      "less": [
+        "less",
+        "a little",
+        "a bit",
+        "little",
+        "not much",
+        "eating less",
+        "less than usual",
+        "kam",
+        "thora",
+        "thoda",
+        "kam kha rahi hai"
+      ],
+      "none": [
+        "no",
+        "n",
+        "none",
+        "nothing",
+        "not eating",
+        "not at all",
+        "stopped eating",
+        "nahi",
+        "nahin",
+        "bilkul nahi",
+        "nahi kha rahi",
+        "nahi kha raha"
+      ]
+    }
+  },
+  "hours_since_ate": {
+    "type": "askable",
+    "question": "How long is it since your cat last ate anything?",
+    "help": "Type it in hours or days, for example \"10 hours\", \"2 days\" or \"since yesterday\".",
+    "why": "A cat that eats nothing for about 24 hours should see a vet the same day, because not eating can quickly cause liver problems.",
+    "values": [
+      "under_24",
+      "over_24"
+    ],
+    "labels": {
+      "under_24": "Up to 24 hours",
+      "over_24": "More than 24 hours"
+    },
+    "synonyms": {
+      "under_24": [
+        "today",
+        "this morning",
+        "since morning",
+        "few hours",
+        "a few hours",
+        "last night",
+        "aaj",
+        "subah se"
+      ],
+      "over_24": [
+        "since yesterday",
+        "yesterday",
+        "more than a day",
+        "over a day",
+        "days",
+        "kal se",
+        "do din"
+      ]
+    },
+    "number": {
+      "unit": "hours",
+      "range": [
+        0,
+        720
+      ],
+      "bands": [
+        {
+          "max": 24,
+          "value": "under_24"
+        },
+        {
+          "value": "over_24"
+        }
+      ]
+    }
+  },
+  "temperature": {
+    "type": "askable",
+    "question": "What is your cat's temperature?",
+    "help": "Only if you have a pet thermometer: type it like \"102.5 F\" or \"39 C\". Normal is about 100.5–102.5 °F (38.1–39.2 °C). If you can't measure it, answer \"not sure\".",
+    "why": "A high temperature (fever) shows the body is fighting an infection.",
+    "values": [
+      "normal",
+      "high"
+    ],
+    "labels": {
+      "normal": "Normal (up to 102.5 °F / 39.2 °C)",
+      "high": "High (above 102.5 °F / 39.2 °C)"
+    },
+    "synonyms": {
+      "normal": [
+        "normal",
+        "not hot",
+        "fine",
+        "theek"
+      ],
+      "high": [
+        "high",
+        "fever",
+        "has fever",
+        "feverish",
+        "very hot",
+        "bukhar",
+        [
+          "hot",
+          0.6
+        ],
+        [
+          "feels hot",
+          0.6
+        ],
+        [
+          "warm",
+          0.4
+        ]
+      ]
+    },
+    "number": {
+      "unit": "fahrenheit",
+      "range": [
+        90,
+        110
+      ],
+      "bands": [
+        {
+          "max": 102.5,
+          "value": "normal"
+        },
+        {
+          "value": "high"
+        }
+      ]
+    }
+  },
+  "danger_sign": {
+    "type": "derived",
+    "label": "your cat has a danger sign that needs a vet straight away"
+  },
+  "urinary_signs": {
+    "type": "derived",
+    "label": "your cat is having trouble urinating"
+  },
+  "urine_blocked": {
+    "type": "derived",
+    "label": "urine cannot get out of the bladder"
+  },
+  "respiratory_signs": {
+    "type": "derived",
+    "label": "your cat has signs of a nose and eye infection (sneezing or discharge)"
+  },
+  "gi_signs": {
+    "type": "derived",
+    "label": "your cat has stomach or gut signs (vomiting or diarrhoea)"
+  },
+  "parvo_risk": {
+    "type": "derived",
+    "label": "your cat is in the group most at risk of Cat Parvo (a kitten or unvaccinated)"
+  },
+  "systemic_illness": {
+    "type": "derived",
+    "label": "your cat is generally unwell (tired, not eating or feverish)"
+  }
+}

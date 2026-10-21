@@ -1,0 +1,25 @@
+{
+ "name": "Mild Cat Flu: sneezing, runny red eyes, still eating and playing",
+ "answers": {
+  "breathing_trouble": "no",
+  "collapsed": "no",
+  "straining": "no",
+  "litter_often": "no",
+  "blood_in_stool": "no",
+  "sneezing": "yes",
+  "eye_discharge": "runny eyes",
+  "nose_discharge": "no",
+  "red_eyes": "yes",
+  "appetite": "eating normally",
+  "tired": "no",
+  "temperature": "not sure"
+ },
+ "expect": {
+  "condition": {
+   "kind": "diagnosis",
+   "goal": "cat_flu",
+   "min_cf": 0.85
+  },
+  "urgency": "home_care"
+ }
+}

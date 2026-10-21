@@ -1,0 +1,53 @@
+{
+  "groups": [
+    {
+      "id": "condition",
+      "title": "Most likely condition",
+      "policy": "highest",
+      "testing_text": "I'm testing whether your cat has {name}.",
+      "none_text": "Not one of the three conditions CatCare knows (Cat Flu, Cat Parvo, Blocked Bladder). Please see a vet.",
+      "goals": [
+        {
+          "id": "cat_flu", "name": "Cat Flu", "medical_name": "Feline upper respiratory infection", "rank": 1,
+          "about": "A viral or bacterial infection of the nose, eyes and throat. It spreads between cats and is most common in young cats and where many cats live together. Mild cases often clear up on their own.",
+          "care": [
+            "Keep your cat warm, quiet and away from other cats.",
+            "Gently wipe discharge from the eyes and nose with clean, damp cotton.",
+            "Make sure it keeps eating and drinking; Cornell says good food and water intake is very important.",
+            "See a vet if it stops eating, gets weaker or struggles to breathe."
+          ]
+        },
+        {
+          "id": "cat_parvo", "name": "Cat Parvo", "medical_name": "Feline panleukopenia", "rank": 2,
+          "about": "A serious virus that attacks the gut and immune system. Kittens and unvaccinated cats are most at risk, and kittens can get very sick very quickly. Vaccination prevents it.",
+          "care": [
+            "Take your cat to a vet: treatment (fluids and support) works best when started early.",
+            "Keep it away from other cats; the virus spreads easily.",
+            "Make sure every other cat at home is vaccinated."
+          ]
+        },
+        {
+          "id": "blocked_bladder", "name": "Blocked Bladder", "medical_name": "Urethral obstruction", "rank": 3,
+          "about": "Urine cannot get out of the bladder. It happens mostly in male cats and is an absolute emergency: without treatment a cat can die within a day or two.",
+          "care": [
+            "Go to a vet now. Do not wait to see if it gets better.",
+            "Do not try home remedies; only a vet can clear the blockage."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "urgency",
+      "title": "What to do",
+      "policy": "most_severe",
+      "fallback": "vet_soon",
+      "testing_text": "I'm deciding whether the right step is: {name}.",
+      "goals": [
+        {"id": "emergency", "name": "Emergency: go to a vet now", "rank": 1},
+        {"id": "vet_today", "name": "See a vet today", "rank": 2},
+        {"id": "vet_soon", "name": "See a vet in the next 1–2 days", "rank": 3},
+        {"id": "home_care", "name": "Care at home and watch closely", "rank": 4}
+      ]
+    }
+  ]
+}

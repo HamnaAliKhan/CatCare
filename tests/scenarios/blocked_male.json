@@ -1,0 +1,27 @@
+{
+ "name": "Male cat straining with only drops of urine: emergency in 6 questions",
+ "answers": {
+  "breathing_trouble": "no",
+  "collapsed": "no",
+  "straining": "yes",
+  "litter_often": "again and again",
+  "little_urine": "only drops",
+  "blood_in_stool": "no"
+ },
+ "expect": {
+  "condition": {
+   "kind": "diagnosis",
+   "goal": "blocked_bladder",
+   "min_cf": 0.85
+  },
+  "urgency": "emergency",
+  "questions": [
+   "breathing_trouble",
+   "collapsed",
+   "straining",
+   "litter_often",
+   "little_urine",
+   "blood_in_stool"
+  ]
+ }
+}

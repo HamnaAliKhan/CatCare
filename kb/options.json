@@ -1,0 +1,49 @@
+{
+  "emergency": {
+    "options": [
+      {"name": "Nearest vet clinic, now",
+       "pros": ["Fastest treatment", "Every minute counts in an emergency"],
+       "cons": ["May not have night staff or emergency equipment"]},
+      {"name": "24-hour or emergency animal hospital",
+       "pros": ["Equipped for emergencies", "Open at night and on holidays"],
+       "cons": ["Usually costs more", "May be far away"]},
+      {"name": "Call a vet while you travel",
+       "pros": ["Advice on the way", "The clinic can get ready for your cat"],
+       "cons": ["You need a vet's number", "A vet cannot treat over the phone"]}
+    ],
+    "warning": "Do not wait to see if it gets better."
+  },
+  "vet_today": {
+    "options": [
+      {"name": "Vet appointment today",
+       "pros": ["Proper examination and tests", "Treatment starts early, when it works best"],
+       "cons": ["Cost of the visit", "Travel can stress your cat"]},
+      {"name": "Phone your vet first",
+       "pros": ["Cheap or free", "The vet decides how urgent it is"],
+       "cons": ["The vet can't examine your cat", "Risk of waiting too long"]}
+    ],
+    "warning": "Go now instead if your cat struggles to breathe, collapses, or strains without passing urine."
+  },
+  "vet_soon": {
+    "options": [
+      {"name": "Book a vet visit in the next 1–2 days",
+       "pros": ["A vet checks it before it gets worse", "Peace of mind"],
+       "cons": ["Cost of the visit", "Your cat may have recovered by then anyway"]},
+      {"name": "Care at home and book a vet if it gets worse",
+       "pros": ["No cost", "Less stress for your cat"],
+       "cons": ["You must watch your cat closely", "A problem could get worse before you notice"]}
+    ],
+    "warning": "See a vet today if your cat stops eating, gets weaker, or a new sign appears."
+  },
+  "home_care": {
+    "options": [
+      {"name": "Care at home",
+       "pros": ["No cost", "Your cat stays comfortable at home"],
+       "cons": ["You must check your cat several times a day", "You need to know the warning signs below"]},
+      {"name": "Vet visit for peace of mind",
+       "pros": ["A vet confirms it is mild", "Questions answered"],
+       "cons": ["Cost of the visit", "Travel can stress your cat"]}
+    ],
+    "warning": "See a vet if your cat stops eating for a day, gets weaker, or has trouble breathing."
+  }
+}
