@@ -1,14 +1,16 @@
 """CatCare web app: streamlit run app/streamlit_app.py
 
-Text only (no images or charts) so it loads on a slow 3G connection.
+Text only apart from a 3 KB logo, so it loads on a slow 3G connection.
 Like the engine, it never mentions a specific question or condition: all
 wording comes from the knowledge base.
 """
 
+import base64
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+LOGO = ROOT / "app" / "assets" / "cat.webp"  # 128x128 WebP; keep it tiny for 3G
 sys.path.insert(0, str(ROOT))  # find engine/
 
 import streamlit as st  # noqa: E402
@@ -20,7 +22,8 @@ from engine.inference import Engine, NeedAnswer  # noqa: E402
 from engine.kb import KB  # noqa: E402
 from engine.normalize import MAX_TRIES, AnswerError, not_sure, parse_answer  # noqa: E402
 
-st.set_page_config(page_title="CatCare", page_icon="🐱", layout="centered")
+st.set_page_config(page_title="CatCare", page_icon=str(LOGO) if LOGO.exists() else "🐱",
+                   layout="centered")
 
 
 @st.cache_resource
@@ -255,6 +258,21 @@ def show_explanations(result):
 
 
 # ----- page -----
-st.title(f"🐱 {kb.settings['name']}", anchor=False)
+def title():
+    """The name with the round logo beside it (stays on one line on phones)."""
+    name = kb.settings["name"]
+    if not LOGO.exists():
+        st.title(f"🐱 {name}", anchor=False)
+        return
+    logo = base64.b64encode(LOGO.read_bytes()).decode()
+    st.markdown(
+        '<div style="display:flex;align-items:center;gap:0.8rem;margin:0.5rem 0 0.75rem">'
+        f'<img src="data:image/webp;base64,{logo}" alt="" '
+        'style="width:3.4rem;height:3.4rem;border-radius:50%;object-fit:cover">'
+        f'<span style="font-size:2.4rem;font-weight:700;line-height:1">{name}</span></div>',
+        unsafe_allow_html=True)
+
+
+title()
 st.caption(kb.settings["disclaimer"])
 {"describe": describe_stage, "confirm": confirm_stage, "questions": question_stage}[state.stage]()
