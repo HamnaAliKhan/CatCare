@@ -28,6 +28,12 @@ def kb():
     ("little_urine", "only drops", ("yes", 1.0)), ("little_urine", "none at all", ("yes", 1.0)),
     ("little_urine", "none", ("yes", 1.0)), ("little_urine", "normal amount", ("no", 1.0)),
     ("vaccinated", "FVRCP done", ("yes", 1.0)), ("vaccinated", "teeka nahi", ("no", 1.0)),
+    # everyday phrasing, joined words and small typos
+    ("collapsed", "not able to standup", ("yes", 1.0)), ("collapsed", "unable to stand up", ("yes", 1.0)),
+    ("collapsed", "cant stnd up", ("yes", 1.0)), ("collapsed", "khari nahi ho rahi", ("yes", 1.0)),
+    ("breathing_trouble", "difficulty breathing", ("yes", 1.0)), ("little_urine", "not able to pee", ("yes", 1.0)),
+    ("appetite", "refusing food", ("none", 1.0)), ("vomiting", "throwingup", ("yes", 1.0)),
+    ("sneezing", "probabli", ("yes", 0.6)),
     # categories and synonyms
     ("sex", "tom", ("male", 1.0)), ("sex", "billi", ("female", 1.0)), ("sex", "Female", ("female", 1.0)),
     ("appetite", "not eating", ("none", 1.0)), ("appetite", "kam", ("less", 1.0)), ("appetite", "yes", ("normal", 1.0)),

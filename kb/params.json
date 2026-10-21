@@ -14,7 +14,21 @@
         "struggling to breathe",
         "breathing heavily",
         "saans",
-        "saans phool rahi"
+        "saans phool rahi",
+        "not able to breathe",
+        "unable to breathe",
+        "cannot breathe",
+        "can not breathe",
+        "difficulty breathing",
+        "hard to breathe",
+        "trouble breathing",
+        "breathing with mouth open",
+        "mouth open breathing",
+        "open mouth breathing",
+        "breathing very fast",
+        "gasping",
+        "saans nahi le pa rahi",
+        "saans lene mein mushkil"
       ],
       "no": [
         "breathing normally",
@@ -37,13 +51,43 @@
         "not moving",
         "unconscious",
         "gir gayi",
-        "gir gaya"
+        "gir gaya",
+        "not able to stand",
+        "not able to stand up",
+        "unable to stand",
+        "unable to stand up",
+        "can't stand up",
+        "cant stand up",
+        "cannot stand",
+        "cannot stand up",
+        "can not stand",
+        "can't get up",
+        "cant get up",
+        "not getting up",
+        "won't get up",
+        "wont get up",
+        "lying flat",
+        "falling over",
+        "keeps falling",
+        "not responding",
+        "unresponsive",
+        "fainted",
+        "khari nahi ho rahi",
+        "khara nahi ho raha",
+        "uth nahi rahi",
+        "uth nahi raha",
+        "behosh"
       ],
       "no": [
         "standing",
         "walking",
         "walking fine",
-        "moving around"
+        "moving around",
+        "can stand",
+        "able to stand",
+        "standing fine",
+        "walking normally",
+        "moving normally"
       ]
     }
   },
@@ -76,7 +120,15 @@
         "keeps trying",
         "sitting in the litter box",
         "zor laga rahi",
-        "zor laga raha"
+        "zor laga raha",
+        "trying to pee",
+        "trying to urinate",
+        "struggling to pee",
+        "struggling in litter box",
+        "sitting for long",
+        "squatting",
+        "constipated",
+        "looks constipated"
       ]
     }
   },
@@ -117,7 +169,18 @@
         "can't pee",
         "cant pee",
         "not peeing",
-        "peshab nahi"
+        "peshab nahi",
+        "not able to pee",
+        "unable to pee",
+        "cannot pee",
+        "can not pee",
+        "not able to urinate",
+        "unable to urinate",
+        "cannot urinate",
+        "no urine comes out",
+        "nothing coming out",
+        "peshab nahi aa raha",
+        "peshab nahi kar pa rahi"
       ],
       "no": [
         "normal amount",
@@ -450,7 +513,12 @@
         "dull",
         "not playing",
         "sust",
-        "kamzor"
+        "kamzor",
+        "very tired",
+        "not active",
+        "sleeping all day",
+        "sleeping a lot",
+        "no energy"
       ],
       "no": [
         "active",
@@ -517,7 +585,16 @@
         "nahin",
         "bilkul nahi",
         "nahi kha rahi",
-        "nahi kha raha"
+        "nahi kha raha",
+        "not able to eat",
+        "unable to eat",
+        "won't eat",
+        "wont eat",
+        "refusing food",
+        "refuses food",
+        "not touching food",
+        "khana nahi kha rahi",
+        "khana nahi kha raha"
       ]
     }
   },

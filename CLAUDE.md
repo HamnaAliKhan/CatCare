@@ -20,6 +20,8 @@ Course project (Intro to Artificial Intelligence, CCP). A rule-based expert syst
 - **The engine is a pure function of the answers so far.** `Engine(kb, answers).run()` returns a `Result` or raises `NeedAnswer(param, goals)`. It never calls `input()`. Every UI re-runs it with one more answer (this gives Back for free).
 - **Never claim certainty without "see a vet".** Every result shows the disclaimer. Danger signs always lead to Emergency.
 - **Nothing unvalidated reaches the engine.** All typed input goes through `parse_answer`, which returns `(value, certainty)` or raises `AnswerError` with a helpful message.
+- **A consultation can never get stuck.** After `MAX_TRIES` (2) answers it can't understand, a UI treats the question as `not_sure(kb, param)` and carries on (Back lets the user answer again). Every UI must do this, and `tests/test_cli.py` checks it with nonsense-only input.
+- **Understanding is phrase-based, not free NLP**: exact phrase (longest first), then the same with spaces removed ("standup"), then a close match for typos (5+ letters, difflib cutoff 0.85). New ways of saying things go in the question's `synonyms`, not in code.
 - **No rule-engine libraries** (experta, CLIPS, PyKE).
 - **Never invent medical facts.** Every rule has a `source`; claims not found in a source are marked as a "safety rule" and justified in the report. Record verification in `docs/kb_changes.md`.
 

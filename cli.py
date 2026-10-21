@@ -6,15 +6,19 @@ from textwrap import indent as _indent
 from engine import explain
 from engine.inference import Engine, NeedAnswer
 from engine.kb import KB
-from engine.normalize import AnswerError, parse_answer
+from engine.normalize import MAX_TRIES, AnswerError, not_sure, parse_answer
 
 
 def indent(text):
     return _indent(text, "  ")
 
 
-def ask(kb, q):
-    """Ask one question; return an answer tuple, "back", or None to re-ask."""
+def ask(kb, q, misunderstood):
+    """Ask one question; return an answer tuple, "back", or None to re-ask.
+
+    misunderstood[param] counts answers we couldn't understand; after MAX_TRIES
+    the question is treated as "not sure", so a consultation can never get stuck.
+    """
     p = kb.params[q.param]
     reply = input(f"\n{p['question']}\n  [type your answer, or help / why / back] > ").strip()
     command = reply.lower()
@@ -28,10 +32,18 @@ def ask(kb, q):
         try:
             value, certainty = parse_answer(kb, q.param, reply)
         except AnswerError as e:
-            print(indent(str(e)))
-            return None
-        shown = p["labels"].get(value, value)
-        print(indent(f"-> {shown}" + ("" if certainty == 1.0 else f" (certainty {certainty:.1f})")))
+            misunderstood[q.param] = misunderstood.get(q.param, 0) + 1
+            if misunderstood[q.param] < MAX_TRIES:
+                print(indent(str(e)))
+                return None
+            print(indent("I still couldn't understand, so I'll count this as \"not sure\" and carry on. "
+                         "(Type back to answer it again.)"))
+            return not_sure(kb, q.param)
+        if certainty == 0.0:
+            print(indent("-> not sure (I'll work with the other answers)"))
+        else:
+            shown = p["labels"].get(value, value)
+            print(indent(f"-> {shown}" + ("" if certainty == 1.0 else f" (certainty {certainty:.1f})")))
         return value, certainty
     return None
 
@@ -82,7 +94,7 @@ def main():
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     kb = KB("kb")
-    answers = {}
+    answers, misunderstood = {}, {}
     print(f"{kb.settings['name']}: answer in your own words, e.g. yes, no, probably, not sure, "
           f"\"6 months\", \"102 F\".")
     while True:
@@ -90,7 +102,7 @@ def main():
             result = Engine(kb, answers).run()
             break
         except NeedAnswer as q:
-            reply = ask(kb, q)
+            reply = ask(kb, q, misunderstood)
             if reply == "back":
                 if answers:
                     answers.popitem()

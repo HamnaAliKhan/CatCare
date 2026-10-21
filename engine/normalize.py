@@ -10,6 +10,7 @@ Anything that can't be understood raises AnswerError with a helpful message,
 so nothing unvalidated ever reaches the engine.
 """
 
+import difflib
 import re
 
 SMALL = {"zero": 0, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,
@@ -20,6 +21,7 @@ TENS = {"twenty": 20, "thirty": 30, "forty": 40, "fifty": 50, "sixty": 60,
         "seventy": 70, "eighty": 80, "ninety": 90}
 NUMBER_WORDS = SMALL.keys() | TENS.keys() | {"hundred"}
 MAX_LENGTH = 200
+MAX_TRIES = 2  # after this many answers we can't understand, UIs treat the question as "not sure"
 
 
 class AnswerError(ValueError):
@@ -52,12 +54,40 @@ def parse_answer(kb, pid, text):
     # question's own phrases win ("none" means yes to "passing little or no urine?").
     # "yes, a lot" and "not eating since yesterday" match by their start; a one-word
     # symptom phrase must match exactly, so "hot dog stand" is not a fever.
-    for phrase, result, prefix_ok in sorted(_phrases(kb, param), key=lambda x: -len(x[0])):
+    phrases = sorted(_phrases(kb, param), key=lambda x: -len(x[0]))
+    for phrase, result, prefix_ok in phrases:
         if text == phrase or (prefix_ok and text.startswith(phrase + " ")):
             return result
+    # Spacing doesn't matter: "standup" = "stand up", "cantpee" = "cant pee".
+    squeezed = text.replace(" ", "")
+    for phrase, result, _ in phrases:
+        if phrase.replace(" ", "") == squeezed:
+            return result
     if param.get("number"):
-        return _parse_number_answer(kb, param, text)
+        try:
+            return _parse_number_answer(kb, param, text)
+        except AnswerError:
+            if _close_match(text, phrases) is None:
+                raise
+    # Small typos: "cant stnd up" ~ "cant stand up". Only for phrases of 5+ letters
+    # and a close match, so short words like "no" are never guessed.
+    found = _close_match(text, phrases)
+    if found:
+        return found
     raise AnswerError(f"Sorry, I didn't understand \"{text}\". {_examples(kb, param)}")
+
+
+def not_sure(kb, pid):
+    """The "not sure" answer for any question: it adds no evidence either way."""
+    return kb.params[pid]["values"][0], 0.0
+
+
+def _close_match(text, phrases):
+    if len(text) < 5:
+        return None
+    candidates = {phrase: result for phrase, result, _ in phrases if len(phrase) >= 5}
+    best = difflib.get_close_matches(text, list(candidates), n=1, cutoff=0.85)
+    return candidates[best[0]] if best else None
 
 
 def _phrases(kb, param):
