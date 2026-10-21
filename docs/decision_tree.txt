@@ -1,0 +1,137 @@
+1. Triage: danger signs first
+
+Struggling to breathe? ?
+    [Yes] => Emergency: go to a vet now (the diagnosis continues with more questions)
+    [No] Collapsed / can't stand? ?
+        [Yes] => Emergency: go to a vet now (the diagnosis continues with more questions)
+        [No] Straining in litter box? ?
+            [Yes] Litter box more often? ?
+                [Yes] Little or no urine? ?
+                    [Yes] => Emergency: go to a vet now · Blocked Bladder: definitely
+                    [No] Blood in stool or vomit? ?
+                        [Yes] => … Emergency: go to a vet now · no known condition
+                        [No] => … See a vet today · no known condition
+                [No] Little or no urine? ?
+                    [Yes] => … Emergency: go to a vet now · Blocked Bladder: quite possible
+                    [No] Blood in stool or vomit? ?
+                        [Yes] => … Emergency: go to a vet now · no known condition
+                        [No] => … See a vet today · no known condition
+            [No] Litter box more often? ?
+                [Yes] Little or no urine? ?
+                    [Yes] => … Emergency: go to a vet now · Blocked Bladder: quite possible
+                    [No] Blood in stool or vomit? ?
+                        [Yes] => … Emergency: go to a vet now · no known condition
+                        [No] => … See a vet today · no known condition
+                [No] Blood in stool or vomit? ?
+                    [Yes] => Emergency: go to a vet now (the diagnosis continues with more questions)
+                    [No] Sneezing? ?
+                        [Yes] => … See a vet in the next 1–2 days · Cat Flu: quite possible
+                        [No] => … See a vet in the next 1–2 days · no known condition
+
+2. Diagnosis: after triage finds no danger sign
+
+Sneezing? ?
+    [Yes] Eye discharge? ?
+        [Yes] Nose discharge? ?
+            [Yes] Red or swollen eyes? ?
+                [Yes] Eating? ?
+                    [Eating normally] Tired, weak or hiding? ?
+                        [Yes] => … See a vet in the next 1–2 days · Cat Flu: definitely
+                        [No] => … Care at home and watch closely · Cat Flu: definitely
+                    [Eating less] => … See a vet in the next 1–2 days · Cat Flu: definitely
+                    [Not eating at all] => See a vet today · Cat Flu: definitely
+                [No] Mouth sores / drooling? ?
+                    [Yes] Eating? ?
+                        [Eating normally] => … Care at home and watch closely · Cat Flu: definitely
+                        [Eating less] => … See a vet in the next 1–2 days · Cat Flu: definitely
+                        [Not eating at all] => … See a vet today · Cat Flu: definitely
+                    [No] Near other cats? ?
+                        [Yes] => … See a vet in the next 1–2 days · Cat Flu: definitely
+                        [No] => … See a vet in the next 1–2 days · Cat Flu: quite possible
+            [No] Red or swollen eyes? ?
+                [Yes] Eating? ?
+                    [Eating normally] Tired, weak or hiding? ?
+                        [Yes] => … See a vet in the next 1–2 days · Cat Flu: definitely
+                        [No] => … Care at home and watch closely · Cat Flu: definitely
+                    [Eating less] => … See a vet in the next 1–2 days · Cat Flu: definitely
+                    [Not eating at all] => See a vet today · Cat Flu: definitely
+                [No] Mouth sores / drooling? ?
+                    [Yes] Eating? ?
+                        [Eating normally] => … Care at home and watch closely · Cat Flu: definitely
+                        [Eating less] => … See a vet in the next 1–2 days · Cat Flu: definitely
+                        [Not eating at all] => … See a vet today · Cat Flu: definitely
+                    [No] Near other cats? ?
+                        [Yes] => … See a vet in the next 1–2 days · Cat Flu: definitely
+                        [No] => … See a vet in the next 1–2 days · Cat Flu: quite possible
+        [No] Nose discharge? ?
+            [Yes] Mouth sores / drooling? ?
+                [Yes] Eating? ?
+                    [Eating normally] Tired, weak or hiding? ?
+                        [Yes] => … See a vet in the next 1–2 days · Cat Flu: definitely
+                        [No] => … Care at home and watch closely · Cat Flu: definitely
+                    [Eating less] => … See a vet in the next 1–2 days · Cat Flu: definitely
+                    [Not eating at all] => See a vet today · Cat Flu: definitely
+                [No] Near other cats? ?
+                    [Yes] Eating? ?
+                        [Eating normally] => … Care at home and watch closely · Cat Flu: definitely
+                        [Eating less] => … See a vet in the next 1–2 days · Cat Flu: definitely
+                        [Not eating at all] => … See a vet today · Cat Flu: definitely
+                    [No] => … See a vet in the next 1–2 days · Cat Flu: quite possible
+            [No] Mouth sores / drooling? ?
+                [Yes] Near other cats? ?
+                    [Yes] Temperature? ?
+                        [Normal (up to 102.5 °F / 39.2 °C)] => … See a vet in the next 1–2 days · Cat Flu: quite possible
+                        [High (above 102.5 °F / 39.2 °C)] => … See a vet in the next 1–2 days · Cat Flu: definitely
+                    [No] => … See a vet in the next 1–2 days · Cat Flu: quite possible
+                [No] => … See a vet in the next 1–2 days · Cat Flu: quite possible
+    [No] Eye discharge? ?
+        [Yes] Nose discharge? ?
+            [Yes] Red or swollen eyes? ?
+                [Yes] Eating? ?
+                    [Eating normally] Tired, weak or hiding? ?
+                        [Yes] => … See a vet in the next 1–2 days · Cat Flu: definitely
+                        [No] => … Care at home and watch closely · Cat Flu: definitely
+                    [Eating less] => … See a vet in the next 1–2 days · Cat Flu: definitely
+                    [Not eating at all] => See a vet today · Cat Flu: definitely
+                [No] Mouth sores / drooling? ?
+                    [Yes] Eating? ?
+                        [Eating normally] => … Care at home and watch closely · Cat Flu: definitely
+                        [Eating less] => … See a vet in the next 1–2 days · Cat Flu: definitely
+                        [Not eating at all] => … See a vet today · Cat Flu: definitely
+                    [No] Near other cats? ?
+                        [Yes] => … See a vet in the next 1–2 days · Cat Flu: definitely
+                        [No] => … See a vet in the next 1–2 days · Cat Flu: quite possible
+            [No] Red or swollen eyes? ?
+                [Yes] Mouth sores / drooling? ?
+                    [Yes] Eating? ?
+                        [Eating normally] => … Care at home and watch closely · Cat Flu: definitely
+                        [Eating less] => … See a vet in the next 1–2 days · Cat Flu: definitely
+                        [Not eating at all] => … See a vet today · Cat Flu: definitely
+                    [No] Near other cats? ?
+                        [Yes] => … See a vet in the next 1–2 days · Cat Flu: definitely
+                        [No] => … See a vet in the next 1–2 days · Cat Flu: quite possible
+                [No] => … See a vet in the next 1–2 days · Cat Flu: quite possible
+        [No] Nose discharge? ?
+            [Yes] Mouth sores / drooling? ?
+                [Yes] Near other cats? ?
+                    [Yes] Temperature? ?
+                        [Normal (up to 102.5 °F / 39.2 °C)] => … See a vet in the next 1–2 days · Cat Flu: quite possible
+                        [High (above 102.5 °F / 39.2 °C)] => … See a vet in the next 1–2 days · Cat Flu: definitely
+                    [No] => … See a vet in the next 1–2 days · Cat Flu: quite possible
+                [No] => … See a vet in the next 1–2 days · Cat Flu: quite possible
+            [No] Vomiting? ?
+                [Yes] Diarrhoea? ?
+                    [Yes] Age? ?
+                        [Kitten (under 1 year)] => … Emergency: go to a vet now · Cat Parvo: maybe
+                        [Adult (1 year or older)] => … See a vet in the next 1–2 days · no known condition
+                    [No] Age? ?
+                        [Kitten (under 1 year)] => … Emergency: go to a vet now · Cat Parvo: maybe
+                        [Adult (1 year or older)] => … See a vet in the next 1–2 days · no known condition
+                [No] Diarrhoea? ?
+                    [Yes] Age? ?
+                        [Kitten (under 1 year)] => … Emergency: go to a vet now · Cat Parvo: maybe
+                        [Adult (1 year or older)] => … See a vet in the next 1–2 days · no known condition
+                    [No] Eating? ?
+                        [Eating normally] => See a vet in the next 1–2 days · no known condition
+                        [Eating less] => See a vet in the next 1–2 days · no known condition
+                        [Not eating at all] => … See a vet in the next 1–2 days · no known condition

@@ -4,6 +4,16 @@
 
   "start_with": ["danger_sign"],
   "start_text": "Before anything else, I check for danger signs: whether {label}.",
+  "start_alert": "Danger sign found: take your cat to a vet now. You can keep answering on the way so the vet knows more.",
+
+  "description": {
+    "prompt": "Describe your cat's problem in your own words (optional)",
+    "example": "e.g. my 4 month old kitten is vomiting & has dast, not vaccinated, not eating since yesterday",
+    "separators": [",", ";", "&", "+", ".", "and", "but", "also", "plus", "then", "aur", "lekin", "or bhi"],
+    "negations_before": ["no", "not", "never", "without", "isn't", "isnt", "is not", "doesn't", "doesnt", "does not",
+                         "didn't", "didnt", "hasn't", "hasnt", "has not", "no more"],
+    "negations_after": ["nahi", "nahin", "nhi", "nai", "na", "not", "nope"]
+  },
 
   "certainty_words": [
     {"min": 0.85, "word": "definitely"},

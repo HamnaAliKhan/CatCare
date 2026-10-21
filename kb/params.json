@@ -1,6 +1,7 @@
 {
   "breathing_trouble": {
     "type": "askable",
+    "short": "Struggling to breathe?",
     "question": "Is your cat struggling to breathe, or breathing very fast while resting?",
     "help": "Count the breaths for a minute while your cat rests (each rise and fall of the chest is one). More than 35 a minute is too fast.",
     "why": "Trouble breathing needs a vet straight away, whatever the cause.",
@@ -39,6 +40,7 @@
   },
   "collapsed": {
     "type": "askable",
+    "short": "Collapsed / can't stand?",
     "question": "Has your cat collapsed, or is it unable to stand up?",
     "help": "Lying flat and not getting up, falling over when it tries to walk, or not responding to you.",
     "why": "A cat that has collapsed needs a vet straight away, whatever the cause.",
@@ -93,6 +95,7 @@
   },
   "blood_in_stool": {
     "type": "askable",
+    "short": "Blood in stool or vomit?",
     "question": "Is there blood in your cat's stool or vomit?",
     "help": "Red streaks or spots, or very dark, tarry stool.",
     "why": "Blood in the stool or vomit is a danger sign. Cat Parvo can cause bloody diarrhoea.",
@@ -103,12 +106,23 @@
         "red stool",
         "bloody diarrhoea",
         "bloody diarrhea",
-        "khoon"
+        "khoon",
+        "blood in stool",
+        "blood in poo",
+        "blood in poop",
+        "blood in vomit",
+        "blood in the stool",
+        "blood in the vomit",
+        "vomiting blood",
+        "bloody stool",
+        "bloody vomit",
+        "potty mein khoon"
       ]
     }
   },
   "straining": {
     "type": "askable",
+    "short": "Straining in litter box?",
     "question": "Is your cat straining in the litter box?",
     "help": "Squatting for a long time and pushing, getting up and trying again. Owners often mistake this for constipation.",
     "why": "Straining to urinate is the main sign of a bladder problem, and can mean the bladder is blocked.",
@@ -134,6 +148,7 @@
   },
   "litter_often": {
     "type": "askable",
+    "short": "Litter box more often?",
     "question": "Is your cat going to the litter box much more often than usual?",
     "help": "Many short visits, or trying to go outside the litter box.",
     "why": "Going much more often is a common sign of a bladder problem.",
@@ -150,6 +165,7 @@
   },
   "little_urine": {
     "type": "askable",
+    "short": "Little or no urine?",
     "question": "When it tries, does your cat pass only a little urine, or none at all?",
     "help": "Check the litter: only small wet spots, a few drops, or nothing at all count as yes.",
     "why": "Straining with little or no urine means the urine cannot get out. Cornell calls this an absolute emergency.",
@@ -194,6 +210,7 @@
   },
   "cries_urinating": {
     "type": "askable",
+    "short": "Cries when urinating?",
     "question": "Does your cat cry or yowl when it tries to urinate?",
     "help": "Crying, growling or yowling while in the litter box.",
     "why": "Crying while urinating shows pain, a sign of a bladder problem.",
@@ -210,6 +227,7 @@
   },
   "blood_in_urine": {
     "type": "askable",
+    "short": "Blood in urine?",
     "question": "Is there blood in your cat's urine?",
     "help": "Pink, red or brown urine, or red spots in the litter.",
     "why": "Blood in the urine is a sign of a bladder problem.",
@@ -220,12 +238,18 @@
         "red pee",
         "pink pee",
         "bloody urine",
-        "blood"
+        "blood",
+        "blood in urine",
+        "blood in the urine",
+        "blood in pee",
+        "bloody pee",
+        "peshab mein khoon"
       ]
     }
   },
   "licking_genitals": {
     "type": "askable",
+    "short": "Licking genitals a lot?",
     "question": "Is your cat licking its genital area much more than usual?",
     "help": "Licking under the tail again and again, often after visiting the litter box.",
     "why": "Frequent licking of the genital area is a sign of a bladder problem.",
@@ -239,6 +263,7 @@
   },
   "sex": {
     "type": "askable",
+    "short": "Male or female?",
     "question": "Is your cat male or female?",
     "help": "Answer male even if he has been neutered.",
     "why": "Male cats are at greater risk of a blocked bladder because their urethra is longer and narrower.",
@@ -280,6 +305,7 @@
   },
   "sneezing": {
     "type": "askable",
+    "short": "Sneezing?",
     "question": "Is your cat sneezing?",
     "help": "Sneezing more than a few times a day counts.",
     "why": "Sneezing is one of the main signs of Cat Flu.",
@@ -296,6 +322,7 @@
   },
   "eye_discharge": {
     "type": "askable",
+    "short": "Eye discharge?",
     "question": "Is there discharge from your cat's eyes?",
     "help": "Watery, sticky, yellow or green discharge, or crust in the corners of the eyes.",
     "why": "Eye discharge is one of the main signs of Cat Flu.",
@@ -313,6 +340,7 @@
   },
   "nose_discharge": {
     "type": "askable",
+    "short": "Nose discharge?",
     "question": "Is there discharge from your cat's nose?",
     "help": "A runny or crusty nose, clear or coloured.",
     "why": "Nose discharge is one of the main signs of Cat Flu.",
@@ -329,6 +357,7 @@
   },
   "red_eyes": {
     "type": "askable",
+    "short": "Red or swollen eyes?",
     "question": "Are your cat's eyes red or swollen around the edges?",
     "help": "Look at the pink skin around the eyes: red, puffy or half-closed eyes count.",
     "why": "Red, swollen eyes (conjunctivitis) often come with Cat Flu.",
@@ -345,6 +374,7 @@
   },
   "mouth_sores": {
     "type": "askable",
+    "short": "Mouth sores / drooling?",
     "question": "Are there sores in your cat's mouth, or is it drooling?",
     "help": "Red spots or ulcers on the tongue or gums, or wet fur on the chin.",
     "why": "Calicivirus, one of the Cat Flu viruses, can sometimes cause mouth ulcers.",
@@ -360,6 +390,7 @@
   },
   "near_other_cats": {
     "type": "askable",
+    "short": "Near other cats?",
     "question": "Has your cat been near other cats recently?",
     "help": "For example a new cat at home, going outdoors, a cattery, a shelter or a pet shop.",
     "why": "Cat Flu and Cat Parvo spread between cats, especially where many cats are kept together.",
@@ -386,6 +417,7 @@
   },
   "vomiting": {
     "type": "askable",
+    "short": "Vomiting?",
     "question": "Is your cat vomiting?",
     "help": "Bringing up food, liquid or foam. A single hairball does not count.",
     "why": "Vomiting is one of the main signs of Cat Parvo.",
@@ -403,6 +435,7 @@
   },
   "diarrhoea": {
     "type": "askable",
+    "short": "Diarrhoea?",
     "question": "Does your cat have diarrhoea?",
     "help": "Loose or watery stool, in or outside the litter box.",
     "why": "Diarrhoea is one of the main signs of Cat Parvo.",
@@ -425,6 +458,7 @@
   },
   "age": {
     "type": "askable",
+    "short": "Age?",
     "question": "How old is your cat?",
     "help": "Type the age, for example \"6 months\", \"2 years\" or \"kitten\". Cats under 1 year old count as kittens.",
     "why": "Kittens are the group most at risk of Cat Parvo, and get very sick very quickly.",
@@ -471,10 +505,26 @@
           "value": "adult"
         }
       ]
-    }
+    },
+    "text_cues": [
+      "old",
+      "age",
+      "month",
+      "months",
+      "mo",
+      "year",
+      "years",
+      "yr",
+      "yrs",
+      "week",
+      "weeks",
+      "saal",
+      "mahine"
+    ]
   },
   "vaccinated": {
     "type": "askable",
+    "short": "Vaccinated?",
     "question": "Has your cat had its vaccinations?",
     "help": "The core cat vaccine is called FVRCP (sometimes \"tricat\"). Check the vaccination card, or ask whoever gave you the cat.",
     "why": "Vaccination protects against Cat Parvo. Unvaccinated cats and kittens are the main group that catches it.",
@@ -500,6 +550,7 @@
   },
   "tired": {
     "type": "askable",
+    "short": "Tired, weak or hiding?",
     "question": "Is your cat unusually tired, weak or hiding?",
     "help": "Sleeping much more than usual, not wanting to play, hiding under furniture, or weak on its legs.",
     "why": "Tiredness and weakness show the cat is generally unwell.",
@@ -531,6 +582,7 @@
   },
   "appetite": {
     "type": "askable",
+    "short": "Eating?",
     "question": "Is your cat eating?",
     "help": "Compare with how much it usually eats.",
     "why": "Not eating is a sign of illness, and a cat that eats nothing for about a day needs a vet.",
@@ -600,6 +652,7 @@
   },
   "hours_since_ate": {
     "type": "askable",
+    "short": "Time since last meal?",
     "question": "How long is it since your cat last ate anything?",
     "help": "Type it in hours or days, for example \"10 hours\", \"2 days\" or \"since yesterday\".",
     "why": "A cat that eats nothing for about 24 hours should see a vet the same day, because not eating can quickly cause liver problems.",
@@ -647,10 +700,22 @@
           "value": "over_24"
         }
       ]
-    }
+    },
+    "text_cues": [
+      "ate",
+      "eaten",
+      "eat",
+      "eating",
+      "food",
+      "meal",
+      "khana",
+      "khaya",
+      "khaye"
+    ]
   },
   "temperature": {
     "type": "askable",
+    "short": "Temperature?",
     "question": "What is your cat's temperature?",
     "help": "Only if you have a pet thermometer: type it like \"102.5 F\" or \"39 C\". Normal is about 100.5–102.5 °F (38.1–39.2 °C). If you can't measure it, answer \"not sure\".",
     "why": "A high temperature (fever) shows the body is fighting an infection.",
@@ -705,7 +770,19 @@
           "value": "high"
         }
       ]
-    }
+    },
+    "text_cues": [
+      "temp",
+      "temperature",
+      "°",
+      "°f",
+      "°c",
+      "fahrenheit",
+      "celsius",
+      "degree",
+      "degrees",
+      "thermometer"
+    ]
   },
   "danger_sign": {
     "type": "derived",

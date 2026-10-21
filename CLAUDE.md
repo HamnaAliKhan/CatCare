@@ -28,23 +28,30 @@ Course project (Intro to Artificial Intelligence, CCP). A rule-based expert syst
 ## Layout
 
 ```
-kb/settings.json      start_with (triage), certainty words, answer words, units, disclaimer
-kb/params.json        24 questions (help, why, values, labels, synonyms, number bands) + 7 derived facts
+kb/settings.json      start_with (triage), start_alert, description words (separators, negations), certainty words, answer words, units, disclaimer
+kb/params.json        24 questions (short, help, why, values, labels, synonyms, number bands, text_cues) + 7 derived facts
 kb/goals.json         goal groups in order: condition (policy highest), urgency (policy most_severe, fallback vet_soon)
 kb/rules.json         58 rules: id, if, then, cf, why, source  — ORDER MATTERS
 kb/options.json       decision support: options with pros/cons + warning, per urgency goal
 engine/cf.py          combine() + THRESHOLD, PRUNE, STOP
 engine/kb.py          Pydantic-validated loader + cross-checks; word(cf), name(), group_of
 engine/inference.py   Engine, NeedAnswer, Result, GroupResult
-engine/normalize.py   parse_answer(): flexible input -> (value, certainty)
+engine/normalize.py   parse_answer(): flexible input -> (value, certainty); not_sure(); MAX_TRIES
+engine/describe.py    read_description(): free text -> facts, conflicts, not understood
 engine/explain.py     Why? / How? / Why not?
+app/streamlit_app.py  web app: describe -> confirm -> questions -> result + options (text only, for 3G)
 tools/kb_check.py     knowledge-base checker
+tools/draw_tree.py    writes docs/decision_tree.md (Mermaid) + .txt from the rules
 cli.py                text UI for fast testing
-tests/                cf, normalize (incl. fuzz), scenarios (incl. random owners), explain, kb_check
+tests/                cf, normalize, describe, scenarios, explain, kb_check, cli, app (AppTest), draw_tree
 docs/catcare_plan.md  design plan;  docs/kb_changes.md  verification + change log
+requirements.txt      deploy deps only (streamlit, pydantic); requirements-dev.txt adds pytest
+.streamlit/config.toml  no usage stats, minimal toolbar, light theme
 ```
 
-Run from the project root inside the venv (`.venv\Scripts\activate`): `python cli.py`, `python -m pytest`, `python tools/kb_check.py`. `pytest.ini` puts the project root on the import path. Streamlit app (`app/streamlit_app.py`) is not built yet.
+Run from the project root inside the venv (`.venv\Scripts\activate`): `streamlit run app/streamlit_app.py`, `python cli.py`, `python -m pytest`, `python tools/kb_check.py`, `python tools/draw_tree.py`. `pytest.ini` puts the project root on the import path. Re-run `draw_tree.py` after changing rules so the diagram stays current.
+
+App notes: `AppTest` paths must be absolute (`tests/test_app.py` builds one from `__file__`); in a form, set the text input and click submit before calling `.run()`. Streamlit's own JS is ~2 MB on first load; keep the app free of images/charts so CatCare adds almost nothing.
 
 ## Knowledge base format
 

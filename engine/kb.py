@@ -31,6 +31,7 @@ class NumberSpec(Strict):
 
 class Param(Strict):
     type: Literal["askable", "derived"]
+    short: str | None = None      # a few words, for diagrams and answer lists
     question: str | None = None
     help: str | None = None
     why: str | None = None
@@ -39,6 +40,7 @@ class Param(Strict):
     labels: dict[str, str] = Field(default_factory=dict)
     synonyms: dict[str, list[str | tuple[str, float]]] = Field(default_factory=dict)
     number: NumberSpec | None = None
+    text_cues: list[str] = Field(default_factory=list)  # words that tie a number in a description to this question
 
     @model_validator(mode="after")
     def _texts(self):
@@ -117,11 +119,21 @@ class CertaintyWord(Strict):
     word: str
 
 
+class DescriptionWords(Strict):
+    prompt: str
+    example: str
+    separators: list[str]
+    negations_before: list[str]
+    negations_after: list[str]
+
+
 class Settings(Strict):
     name: str
     disclaimer: str
     start_with: list[str] = Field(default_factory=list)
     start_text: str
+    start_alert: str
+    description: DescriptionWords
     certainty_words: list[CertaintyWord]
     below_words: str
     answers: dict[str, AnswerWords]
