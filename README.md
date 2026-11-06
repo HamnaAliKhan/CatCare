@@ -56,7 +56,7 @@ kb/                knowledge base (settings, params, goals, rules, options)
 engine/            cf.py, kb.py, inference.py, normalize.py, describe.py, explain.py
 app/               streamlit_app.py and the logo
 tools/             kb_check.py (finds knowledge-base mistakes), draw_tree.py (decision tree)
-tests/             152 tests: scenarios, input forms, descriptions, the app, fuzzing
+tests/             155 tests: scenarios, input forms, descriptions, the app, fuzzing
 docs/              design plan, source checks and change log, decision tree
 cli.py             text version of the app
 ```
