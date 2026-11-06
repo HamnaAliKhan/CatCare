@@ -39,14 +39,11 @@ class Result:
 
 
 class Engine:
-    def __init__(self, kb, answers, failed_fixes=()):
+    def __init__(self, kb, answers):
         self.kb, self.answers = kb, answers  # {param: (value, certainty)}
         self.wm = {}                          # (param, value) -> cf
         self.done, self.tried, self.fired = set(), set(), set()
         self.trace, self.goals = [], []
-        for g in failed_fixes:                # a fix the user says didn't work
-            self.set_cf(g, "yes", -1.0)
-            self.trace.append(("fix failed", g, 0.0, -1.0))
 
     # ----- working memory -----
     def cf(self, p, v="yes"):

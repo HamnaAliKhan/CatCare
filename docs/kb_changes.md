@@ -1,6 +1,6 @@
 # Knowledge base: verification and change log
 
-Every check of a claim against its source, and every change to a rule, its premises or its CF. Starting point: the rules in `docs/catcare_plan.md` (Oct 21, 2026).
+Every check of a claim against its source, and every change to a rule, its premises or its CF. Starting point: the first draft of the rules in the design plan (Oct 21, 2026).
 
 ## Source verification (Oct 22, 2026)
 

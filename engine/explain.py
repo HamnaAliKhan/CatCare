@@ -40,10 +40,6 @@ def how(kb, result):
     """Every fired rule in order, its why text, and the beliefs it changed."""
     lines, last = [], None
     for rule_id, target, old, new in result.trace:
-        if rule_id == "fix failed":
-            lines.append(f"You said the advice for {kb.name(target)} did not help, so it was ruled out ({_cf(new)}).")
-            last = None
-            continue
         if rule_id != last:
             lines.append(f"{rule_id}: {kb.rule_info[rule_id]['why']}")
             last = rule_id
@@ -59,9 +55,6 @@ def why_not(kb, result, goal):
         return f"{name} was never tested: the evidence pointed elsewhere before it was reached."
     lines = []
     for rule_id, _, old, new in entries:
-        if rule_id == "fix failed":
-            lines.append(f"You said the advice did not help, so it was ruled out ({_cf(new)}).")
-            continue
         verb = "lowered" if new < old else "raised"
         lines.append(f"{rule_id} {verb} {name} from {_cf(old)} to {_cf(new)}: "
                      f"{kb.rule_info[rule_id]['why']}")

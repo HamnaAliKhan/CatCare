@@ -88,8 +88,6 @@ If you change a CF, a premise or rule order: re-run the scenarios and log it in 
 - A question's own synonyms win over general answer words on a tie: "none" means **yes** to "passing little or no urine?".
 - One-word synonyms must match exactly; multi-word phrases and answer words may start a longer answer ("yes, a lot", "not eating since yesterday"). Otherwise "hot dog stand" would read as a fever.
 - Temperatures with no unit are guessed: below 50 = °C, else °F. Ages with no unit are years.
-- `failed_fixes` still exists in the engine but is unused (no fix-and-verify for sick animals).
-
 ## Conventions
 
 - Python 3.11+ (venv is 3.14), standard library + streamlit, pydantic, pytest.
