@@ -332,6 +332,7 @@ def title():
 PAGE_CSS = """<style>
 [data-testid="stMainBlockContainer"] { max-width: 1100px; padding-top: 2.5rem; }
 [data-testid="stImage"] img { border-radius: 0.75rem; }
+[data-testid="stCaptionContainer"] { opacity: 1; }  /* Streamlit fades captions to 60% */
 [data-testid="stCaptionContainer"], [data-testid="stCaptionContainer"] p { color: #4F443D; }
 </style>"""
 
