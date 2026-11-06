@@ -146,7 +146,7 @@ def count(node):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    parser.add_argument("--depth", type=int, default=5, help="questions per tree (default 5)")
+    parser.add_argument("--depth", type=int, default=6, help="questions per tree (default 6)")
     args = parser.parse_args()
 
     kb = KB(ROOT / "kb")

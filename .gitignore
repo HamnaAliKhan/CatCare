@@ -2,3 +2,7 @@
 __pycache__/
 *.pyc
 .pytest_cache/
+
+# Course report (personal details) and exports: keep local only
+docs/*.docx
+docs/*.pdf
