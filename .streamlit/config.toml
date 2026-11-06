@@ -10,3 +10,16 @@ toolbarMode = "minimal"
 
 [theme]
 base = "light"
+# Warm, calm colours. White text on primaryColor has 5:1 contrast (readable).
+primaryColor = "#B4532A"
+backgroundColor = "#FFFCF8"
+secondaryBackgroundColor = "#F5EDE4"
+textColor = "#1E1712"
+borderColor = "#E6DACE"
+baseRadius = "0.75rem"
+# Friendly, readable Google Fonts (~25 KB per style; text shows at once in the fallback font).
+font = "Nunito:https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&display=swap, sans-serif"
+# Nunito looks thin at 400; 500 reads darker and clearer.
+baseFontWeight = 500
+headingFont = "Fredoka:https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&display=swap, sans-serif"
+headingFontWeights = [600, 600, 600, 600, 600, 600]

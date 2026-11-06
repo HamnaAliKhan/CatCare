@@ -1,6 +1,7 @@
 """CatCare web app: streamlit run app/streamlit_app.py
 
-Text only apart from a 3 KB logo, so it loads on a slow 3G connection.
+Light for a slow 3G connection: a 3 KB logo and two small WebP photos (~28 KB), plus
+two Google Fonts. No charts.
 Like the engine, it never mentions a specific question or condition: all
 wording comes from the knowledge base.
 """
@@ -23,7 +24,7 @@ from engine.kb import KB  # noqa: E402
 from engine.normalize import MAX_TRIES, AnswerError, not_sure, parse_answer  # noqa: E402
 
 st.set_page_config(page_title="CatCare", page_icon=str(LOGO) if LOGO.exists() else "🐱",
-                   layout="centered")
+                   layout="wide")
 
 
 @st.cache_resource
@@ -76,6 +77,28 @@ def lines(text):
     return text.replace("\n", "  \n")
 
 
+STEPS = ["Describe", "Check", "Questions", "Result"]
+
+
+def step_tracker(current):
+    """A one-line 'Describe › Check › Questions › Result' guide; done steps get a tick."""
+    now = STEPS.index(current)
+    skipped_check = current in ("Questions", "Result") and state.description is None
+    parts = []
+    for i, step in enumerate(STEPS):
+        if step == "Check" and skipped_check:
+            parts.append(f'<span style="color:#776B63;text-decoration:line-through">{step}</span>')
+        elif i < now:
+            parts.append(f'<span style="color:#6B5E55">✓ {step}</span>')
+        elif i == now:
+            parts.append(f'<span style="color:#B4532A;font-weight:700">● {step}</span>')
+        else:
+            parts.append(f'<span style="color:#776B63">○ {step}</span>')
+    sep = '<span style="color:#C9BFB7"> › </span>'
+    st.markdown(f'<div style="font-size:0.9rem;margin:-0.25rem 0 0.75rem;line-height:1.6">'
+                f'{sep.join(parts)}</div>', unsafe_allow_html=True)
+
+
 def answer_buttons(param):
     """(label, answer) pairs for the quick buttons of a question."""
     info = kb.params[param]
@@ -89,23 +112,32 @@ def answer_buttons(param):
 # ----- stage 1: describe -----
 def describe_stage():
     words = kb.settings["description"]
+    step_tracker("Describe")
     st.subheader(words["prompt"], anchor=False)
     text = st.text_area("Description", value=state.text, placeholder=words["example"],
                         max_chars=1000, label_visibility="collapsed", key="description_box")
     left, right = st.columns(2)
     if left.button("Continue", type="primary", key="describe_continue", width="stretch"):
-        state.text = text
+        if not text.strip():
+            # The grey example is only a placeholder: don't skip silently, say what to do.
+            state.notice = ("warning", "Please describe the problem first (the grey text is only an "
+                                       "example), or press **Skip, just ask me**.")
+            st.rerun()
+        state.text, state.notice = text, None
         state.description = read_description(kb, text)
-        state.stage = "confirm" if text.strip() else "questions"
+        state.stage = "confirm"
         st.rerun()
     if right.button("Skip, just ask me", key="describe_skip", width="stretch"):
-        state.description, state.stage = None, "questions"
+        state.description, state.stage, state.notice = None, "questions", None
         st.rerun()
+    if state.notice:
+        st.warning(state.notice[1])
 
 
 # ----- stage 2: confirm what was understood -----
 def confirm_stage():
     d = state.description
+    step_tracker("Check")
     st.subheader("Here's what I understood", anchor=False)
     keep = {}
     for param, answer in d.facts.items():
@@ -134,10 +166,12 @@ def question_stage():
     try:
         result = engine.run()
     except NeedAnswer as q:
+        step_tracker("Questions")
         if any(engine.cf(p) > THRESHOLD for p in kb.start_with):
             st.error(kb.settings["start_alert"])
         ask(q)
         return
+    step_tracker("Result")
     show_result(result)
 
 
@@ -150,12 +184,22 @@ def ask(q):
     with st.expander("Why are you asking?"):
         st.markdown(lines(explain.why(kb, q.goals)))
 
-    buttons = answer_buttons(param)
-    columns = st.columns(3)
-    for i, (label, answer) in enumerate(buttons):
-        if columns[i % 3].button(label, key=f"btn_{param}_{i}", width="stretch"):
-            record(param, answer)
-            st.rerun()
+    buttons = list(enumerate(answer_buttons(param)))  # keep each button's key stable
+    if info["values"] == ["yes", "no"]:
+        # Clear answers (Yes / No) first and large; graded answers below, "Not sure" last.
+        sure = [b for b in buttons if b[1][1][1] == 1.0]
+        unsure = sorted((b for b in buttons if b[1][1][1] != 1.0), key=lambda b: b[1][1][1] == 0.0)
+        rows = [(sure, None), (unsure, "Not certain? Pick one of these:")]
+    else:
+        rows = [(buttons, None)]
+    for row, caption in rows:
+        if caption:
+            st.caption(caption)
+        columns = st.columns(max(1, min(len(row), 4)))
+        for n, (i, (label, answer)) in enumerate(row):
+            if columns[n % len(columns)].button(label, key=f"btn_{param}_{i}", width="stretch"):
+                record(param, answer)
+                st.rerun()
 
     with st.form(key=f"form_{param}", clear_on_submit=True):
         typed = st.text_input("Or type your answer in your own words", key=f"typed_{param}",
@@ -179,6 +223,17 @@ def ask(q):
         (st.warning if kind == "warning" else st.info)(text)
     if state.history or state.description is not None:
         st.button("Back", key="back", on_click=go_back)
+    if state.answers:
+        with st.expander(f"Your answers so far ({len(state.answers)})"):
+            answers_list()
+
+
+def answers_list():
+    """Every answer given so far, marking the ones taken from the description."""
+    from_text = state.description.facts if state.description else {}
+    for param, answer in state.answers.items():
+        note = " *(from your description)*" if param in from_text and param not in state.history else ""
+        st.markdown(f"- {kb.params[param]['question']} **{shown(param, answer)}**{note}")
 
 
 def show_result(result):
@@ -206,7 +261,10 @@ def show_decision(group, outcome):
     name = kb.name(outcome.decision)
     rank = group["goal_ids"].index(outcome.decision)
     box, icon = [(st.error, "🚨"), (st.warning, "⚠️"), (st.info, "🩺")][rank] if rank < 3 else (st.success, "🏠")
-    box(f"**{name}**", icon=icon)
+    # The decision in bold (a ### heading would bring back Streamlit's link icon), with the
+    # knowledge base's "act sooner if…" line under it.
+    warning = kb.options.get(outcome.decision, {}).get("warning")
+    box(f"**{name}**" + (f"\n\n{warning}" if warning else ""), icon=icon)
 
 
 def show_diagnosis(group, outcome):
@@ -239,7 +297,6 @@ def show_options(result):
         choice = st.radio("Which will you do?", names, index=None, key=f"choice_{decision}")
         if choice:
             st.success(f"You chose: **{choice}**.")
-        st.warning(options["warning"])
 
 
 def show_explanations(result):
@@ -251,10 +308,7 @@ def show_explanations(result):
         goal = st.selectbox("Why not…", diagnosis_goals, format_func=kb.name, key="why_not")
         st.markdown(lines(explain.why_not(kb, result, goal)))
     with st.expander("Your answers"):
-        from_text = state.description.facts if state.description else {}
-        for param, answer in state.answers.items():
-            note = " *(from your description)*" if param in from_text and param not in state.history else ""
-            st.markdown(f"- {kb.params[param]['question']} **{shown(param, answer)}**{note}")
+        answers_list()
 
 
 # ----- page -----
@@ -266,13 +320,45 @@ def title():
         return
     logo = base64.b64encode(LOGO.read_bytes()).decode()
     st.markdown(
-        '<div style="display:flex;align-items:center;gap:0.8rem;margin:0.5rem 0 0.75rem">'
+        '<div style="display:flex;align-items:center;gap:1rem;margin:0.5rem 0 0.75rem">'
         f'<img src="data:image/webp;base64,{logo}" alt="" '
-        'style="width:3.4rem;height:3.4rem;border-radius:50%;object-fit:cover">'
-        f'<span style="font-size:2.4rem;font-weight:700;line-height:1">{name}</span></div>',
+        'style="width:4.5rem;height:4.5rem;border-radius:50%;object-fit:cover">'
+        f'<span style="font-family:Fredoka,sans-serif;font-size:2.7rem;font-weight:600;'
+        f'line-height:1">{name}</span></div>',
         unsafe_allow_html=True)
 
 
+# Wide layout, but never wider than is comfortable to read on a laptop.
+PAGE_CSS = """<style>
+[data-testid="stMainBlockContainer"] { max-width: 1100px; padding-top: 2.5rem; }
+[data-testid="stImage"] img { border-radius: 0.75rem; }
+[data-testid="stCaptionContainer"], [data-testid="stCaptionContainer"] p { color: #4F443D; }
+</style>"""
+
+# Small WebP photos (about 28 KB together) so the app stays quick on 3G.
+PICTURES = {"start": ROOT / "app" / "assets" / "kittens.webp",
+            "consult": ROOT / "app" / "assets" / "calico.webp"}
+
+
+def side_panel():
+    """Right-hand panel on laptops (drops below the consultation on phones)."""
+    picture = PICTURES["start" if state.stage in ("describe", "confirm") else "consult"]
+    if picture.exists():
+        st.image(str(picture), width="stretch")
+    with st.container(border=True):
+        st.markdown("**How CatCare works**")
+        st.markdown("1. Tell it what's wrong, in your own words.\n"
+                    "2. Check what it understood.\n"
+                    "3. Answer a few questions (danger signs first).\n"
+                    "4. Get the urgency, the likely condition and your options.")
+        st.caption("You can answer in English or Roman Urdu, and say “not sure” to any question.")
+
+
+st.markdown(PAGE_CSS, unsafe_allow_html=True)
 title()
 st.caption(kb.settings["disclaimer"])
-{"describe": describe_stage, "confirm": confirm_stage, "questions": question_stage}[state.stage]()
+main, side = st.columns([2, 1], gap="large")
+with main:
+    {"describe": describe_stage, "confirm": confirm_stage, "questions": question_stage}[state.stage]()
+with side:
+    side_panel()

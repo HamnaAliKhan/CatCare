@@ -47,7 +47,7 @@ CatCare is a course project (Intro to Artificial Intelligence), **not a vet**. A
 | Certainty: not sure → maybe → quite possible → definitely | `kb/settings.json` certainty words |
 | Incomplete, redundant, wrong input; must not fail | "Not sure" anywhere; repeated facts kept once; contradictions asked again; nonsense twice → counted as "not sure"; fuzz-tested |
 | Decision making and decision support | The urgency decision and condition, plus options with pros and cons that the owner chooses from (`kb/options.json`) |
-| Streamlit, live, light enough for 3G | https://catcare.streamlit.app/, text only apart from a 3 KB logo |
+| Streamlit, live, light enough for 3G | https://catcare.streamlit.app/, about 100 KB of its own (logo and two small photos 31 KB, two fonts 69 KB) on top of Streamlit |
 
 ## Project layout
 

@@ -39,7 +39,7 @@ engine/inference.py   Engine, NeedAnswer, Result, GroupResult
 engine/normalize.py   parse_answer(): flexible input -> (value, certainty); not_sure(); MAX_TRIES
 engine/describe.py    read_description(): free text -> facts, conflicts, not understood
 engine/explain.py     Why? / How? / Why not?
-app/streamlit_app.py  web app: describe -> confirm -> questions -> result + options (text only, for 3G)
+app/streamlit_app.py  web app: describe -> confirm -> questions -> result + options (light, for 3G)
 tools/kb_check.py     knowledge-base checker
 tools/draw_tree.py    writes docs/decision_tree.md (Mermaid) + .txt from the rules
 cli.py                text UI for fast testing
@@ -51,7 +51,7 @@ requirements.txt      deploy deps only (streamlit, pydantic); requirements-dev.t
 
 Run from the project root inside the venv (`.venv\Scripts\activate`): `streamlit run app/streamlit_app.py`, `python cli.py`, `python -m pytest`, `python tools/kb_check.py`, `python tools/draw_tree.py`. `pytest.ini` puts the project root on the import path. Re-run `draw_tree.py` after changing rules so the diagram stays current.
 
-App notes: `AppTest` paths must be absolute (`tests/test_app.py` builds one from `__file__`); in a form, set the text input and click submit before calling `.run()`. Streamlit's own JS is ~2 MB on first load; keep the app free of images/charts so CatCare adds almost nothing.
+App notes: `AppTest` paths must be absolute (`tests/test_app.py` builds one from `__file__`); in a form, set the text input and click submit before calling `.run()`. Streamlit's own JS is ~2 MB on first load; keep CatCare's own additions small: a 3 KB logo, two WebP photos (~28 KB together, in `app/assets/`), two Google Fonts set in `.streamlit/config.toml`, and no charts. Compress any new picture to WebP under ~30 KB.
 
 ## Knowledge base format
 

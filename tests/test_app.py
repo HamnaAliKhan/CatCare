@@ -46,7 +46,8 @@ def test_description_then_emergency():
     for _ in range(3):
         quick(at, "No")
     no_errors(at)
-    assert at.error[0].value == "**Emergency: go to a vet now**"
+    assert at.error[0].value.startswith("**Emergency: go to a vet now**")
+    assert "Do not wait" in at.error[0].value          # what to do now, in the banner
     at.radio[0].set_value("Nearest vet clinic, now").run()
     assert "You chose" in at.success[0].value
 
@@ -85,9 +86,47 @@ def test_cat_flu_home_care_and_restart():
     while at.button and any(b.key and b.key.startswith("btn_") for b in at.button):
         quick(at, "Not sure" if "temperature" in (question(at) or "") else "No")
     no_errors(at)
-    assert at.success[0].value == "**Care at home and watch closely**"
+    assert at.success[0].value.startswith("**Care at home and watch closely**")
     at.button(key="restart").click().run()
     assert at.text_area(key="description_box") is not None
+
+
+def test_step_tracker_follows_the_consultation():
+    def current(at):
+        marks = [m.value for m in at.markdown if "●" in m.value]
+        assert len(marks) == 1, marks
+        return marks[0].split("● ")[1].split("<")[0]
+
+    at = start()
+    assert current(at) == "Describe"
+    at.text_area(key="description_box").input("my cat is sneezing").run()
+    at.button(key="describe_continue").click().run()
+    assert current(at) == "Check"
+    at.button(key="confirm_start").click().run()
+    assert current(at) == "Questions"
+    while any(b.key and b.key.startswith("btn_") for b in at.button):
+        quick(at, "Not sure")
+    assert current(at) == "Result"
+    no_errors(at)
+
+
+def test_continue_with_empty_box_explains_instead_of_skipping():
+    at = start()
+    at.button(key="describe_continue").click().run()   # nothing typed: only the grey example
+    assert at.text_area(key="description_box") is not None          # still on Describe
+    assert "describe the problem first" in at.warning[0].value
+    at.text_area(key="description_box").input("my cat is sneezing").run()
+    at.button(key="describe_continue").click().run()
+    assert at.subheader[0].value == "Here's what I understood"
+    assert not at.warning                                             # old message gone
+    no_errors(at)
+
+
+def test_skipped_check_is_shown_as_skipped():
+    at = start()
+    at.button(key="describe_skip").click().run()
+    tracker = [m.value for m in at.markdown if "●" in m.value][0]
+    assert "line-through\">Check" in tracker and "✓ Check" not in tracker
 
 
 @pytest.mark.parametrize("seed", range(15))
