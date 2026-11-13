@@ -6,3 +6,7 @@ __pycache__/
 # Course report (personal details) and exports: keep local only
 docs/*.docx
 docs/*.pdf
+
+# AI-assistant notes and dev-container config: local only
+CLAUDE.md
+.devcontainer/
