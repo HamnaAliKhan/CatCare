@@ -36,19 +36,6 @@ CatCare is a course project (Intro to Artificial Intelligence), **not a vet**. A
 - **Inference engine** (`engine/`): our own code, no rule-engine library. Backward chaining with certainty factors, plus a forward pass after every answer. Danger signs are checked first; when unsure, the more urgent advice wins.
 - **The question order is not hard-coded**: it comes from the rules and the answers so far, so different cats get different questions.
 
-## The instructor's requirements
-
-| Requirement | Where it's met |
-|---|---|
-| At least 50 rules, 2–3 conditions | 58 rules in `kb/rules.json`; Cat Flu, Cat Parvo, Blocked Bladder |
-| Python, declarative (knowledge base + inference), no database | `kb/*.json` + `engine/inference.py` |
-| Rule order and hierarchy; a decision tree | Triage → condition → urgency; tree generated from the rules in [`docs/decision_tree.md`](docs/decision_tree.md) |
-| Flexible input ("100", "hundred", "100°F", "&", synonyms) | `engine/normalize.py`, `engine/describe.py`: number words, °F/°C, months/years/days, "and"/"&"/"aur", Roman Urdu ("haan", "ulti", "khana nahi kha rahi"), typos |
-| Certainty: not sure → maybe → quite possible → definitely | `kb/settings.json` certainty words |
-| Incomplete, redundant, wrong input; must not fail | "Not sure" anywhere; repeated facts kept once; contradictions asked again; nonsense twice → counted as "not sure"; fuzz-tested |
-| Decision making and decision support | The urgency decision and condition, plus options with pros and cons that the owner chooses from (`kb/options.json`) |
-| Streamlit, live, light enough for 3G | https://catcare.streamlit.app/, about 100 KB of its own (logo and two small photos 31 KB, two fonts 69 KB) on top of Streamlit |
-
 ## Project layout
 
 ```
